@@ -1,0 +1,202 @@
+/* --------------------------------------------- */
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+}
+
+header h1 {
+  cursor: pointer;
+}
+
+header p {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-top: 0.3rem;
+}
+
+/* --------------------------------------------- */
+/* Categorías - Inicio */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  background: linear-gradient(145deg, #020617, #020617);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+}
+
+/* --------------------------------------------- */
+/* Test Layout */
+.test-layout {
+  display: flex;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+/* Espacios laterales para anuncios */
+.ad-space {
+  width: 120px;
+  background: #0f172a;
+  border: 1px dashed #334155;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.left-ad {
+  margin-right: 1rem;
+}
+
+.right-ad {
+  margin-left: 1rem;
+}
+
+/* Pregunta y respuestas */
+.question-box {
+  flex: 1;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cronómetro */
+.top-bar {
+  width: 100%;
+  text-align: right;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Respuestas */
+#answers button {
+  display: block;
+  width: 80%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#answers button:hover {
+  background: #334155;
+}
+
+/* Menú lateral preguntas */
+#question-nav {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+#question-nav button {
+  width: 35px;
+  height: 35px;
+  font-size: 0.9rem;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#question-nav button.correct {
+  background: #14532d;
+}
+
+#question-nav button.wrong {
+  background: #7f1d1d;
+}
+
+/* Botón finalizar test */
+.finish-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  background: #38bdf8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.finish-btn:hover {
+  background: #0ea5e9;
+}
+
+/* --------------------------------------------- */
+/* Ocultar elementos */
+.hidden {
+  display: none;
+}
+
+/* --------------------------------------------- */
+/* Responsive */
+@media (max-width: 768px) {
+  .test-layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .ad-space {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  #answers button {
+    width: 100%;
+  }
+
+  #question-nav {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  #question-nav button {
+    width: 30px;
+    height: 30px;
+  }
+}

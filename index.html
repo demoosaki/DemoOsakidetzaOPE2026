@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo OPE Osakidetza 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1 style="cursor:pointer;" onclick="goHome()">Demo OPE Osakidetza 2026</h1>
+  <p>Demo interactiva batería de preguntas</p>
+</header>
+
+<main class="categories">
+  <div class="card" onclick="startTest('medicina')">
+    <h2>Medicina</h2>
+  </div>
+
+  <div class="card" onclick="startTest('enfermeria')">
+    <h2>Enfermería</h2>
+  </div>
+
+  <div class="card" onclick="startTest('auxiliar')">
+    <h2>Auxiliar de Enfermería</h2>
+  </div>
+
+  <div class="card" onclick="startTest('celador')">
+    <h2>Celador</h2>
+  </div>
+</main>
+
+<section id="test-container" class="hidden">
+  <div class="test-layout">
+
+    <!-- Espacio lateral izquierdo para ads -->
+    <aside class="ad-space left-ad"></aside>
+
+    <!-- Menú lateral de preguntas -->
+    <aside id="question-nav"></aside>
+
+    <!-- Pregunta y respuestas -->
+    <div class="question-box">
+      <div class="top-bar">
+        <span id="timer">00:00</span>
+      </div>
+      <h2 id="question-text"></h2>
+      <div id="answers"></div>
+      <button id="finish-btn" class="hidden finish-btn">Finalizar test</button>
+    </div>
+
+    <!-- Espacio lateral derecho para ads -->
+    <aside class="ad-space right-ad"></aside>
+
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>

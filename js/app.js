@@ -1,139 +1,144 @@
-let questions = [
-  {q:"Pregunta 1", options:["A","B","C","D"], answer:0},
-  {q:"Pregunta 2", options:["A","B","C","D"], answer:1},
-  {q:"Pregunta 3", options:["A","B","C","D"], answer:2},
-  {q:"Pregunta 4", options:["A","B","C","D"], answer:3},
-  {q:"Pregunta 5", options:["A","B","C","D"], answer:0},
-  {q:"Pregunta 6", options:["A","B","C","D"], answer:1},
-  {q:"Pregunta 7", options:["A","B","C","D"], answer:2},
-  {q:"Pregunta 8", options:["A","B","C","D"], answer:3},
-  {q:"Pregunta 9", options:["A","B","C","D"], answer:0},
-  {q:"Pregunta 10", options:["A","B","C","D"], answer:1}
-];
+let questions = {
+  medicina: [
+    {q: "Pregunta 1 Medicina", options: ["A","B","C","D"], answer: 1},
+    {q: "Pregunta 2 Medicina", options: ["A","B","C","D"], answer: 2},
+    {q: "Pregunta 3 Medicina", options: ["A","B","C","D"], answer: 0},
+    {q: "Pregunta 4 Medicina", options: ["A","B","C","D"], answer: 3},
+    {q: "Pregunta 5 Medicina", options: ["A","B","C","D"], answer: 1},
+    {q: "Pregunta 6 Medicina", options: ["A","B","C","D"], answer: 2},
+    {q: "Pregunta 7 Medicina", options: ["A","B","C","D"], answer: 0},
+    {q: "Pregunta 8 Medicina", options: ["A","B","C","D"], answer: 3},
+    {q: "Pregunta 9 Medicina", options: ["A","B","C","D"], answer: 1},
+    {q: "Pregunta 10 Medicina", options: ["A","B","C","D"], answer: 2},
+  ],
+  enfermeria: [...Array(10)].map((_,i)=>({q:`Pregunta ${i+1} Enfermería`, options:["A","B","C","D"], answer:i%4})),
+  auxiliar: [...Array(10)].map((_,i)=>({q:`Pregunta ${i+1} Auxiliar`, options:["A","B","C","D"], answer:i%4})),
+  celador: [...Array(10)].map((_,i)=>({q:`Pregunta ${i+1} Celador`, options:["A","B","C","D"], answer:i%4})),
+};
 
+let currentTest = [];
 let currentIndex = 0;
-let userAnswers = [];
+let score = 0;
 let timerInterval;
-let seconds = 0;
+let selectedAnswers = [];
+let currentCategory = "";
 
-function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
+const testContainer = document.getElementById("test-container");
+const questionText = document.getElementById("question-text");
+const answersDiv = document.getElementById("answers");
+const finishBtn = document.getElementById("finish-btn");
+const restartBtn = document.getElementById("restart-btn");
+const timerSpan = document.getElementById("timer");
+const questionNav = document.getElementById("question-nav");
+const scoreDiv = document.getElementById("score");
+const testCategoryName = document.getElementById("test-category-name");
+const homeSection = document.getElementById("home");
 
-function startTimer() {
-  clearInterval(timerInterval);
-  seconds = 0;
-  document.getElementById("timer").innerText = "00:00";
-  timerInterval = setInterval(()=>{
-    seconds++;
-    let min = Math.floor(seconds/60).toString().padStart(2,"0");
-    let sec = (seconds%60).toString().padStart(2,"0");
-    document.getElementById("timer").innerText = `${min}:${sec}`;
-  },1000);
-}
-
-function goHome() {
-  document.body.className = "theme-default";
-  document.getElementById("test-container").classList.add("hidden");
-  document.getElementById("categories-container").classList.remove("hidden");
-  document.getElementById("score").classList.add("hidden");
-}
-
-function startTest(categoryName) {
-  document.body.className = "";
-  switch(categoryName) {
-    case "Medicina": document.body.classList.add("theme-medicina"); break;
-    case "Enfermería": document.body.classList.add("theme-enfermeria"); break;
-    case "Auxiliar de Enfermería": document.body.classList.add("theme-auxiliar"); break;
-    case "Celador": document.body.classList.add("theme-celador"); break;
-    default: document.body.classList.add("theme-default");
-  }
-
-  document.getElementById("current-category").innerText = categoryName;
-
-  document.getElementById("categories-container").classList.add("hidden");
-  document.getElementById("test-container").classList.remove("hidden");
-
+function startTest(category) {
+  currentCategory = category;
+  currentTest = [...questions[category]];
+  currentTest.sort(() => Math.random() - 0.5);
   currentIndex = 0;
-  userAnswers = [];
-  questions = shuffle([...questions]);
+  score = 0;
+  selectedAnswers = Array(currentTest.length).fill(null);
+  testCategoryName.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+  testContainer.classList.remove("hidden");
+  homeSection.classList.add("hidden");
+  finishBtn.classList.remove("hidden");
+  restartBtn.classList.remove("hidden");
+  scoreDiv.classList.add("hidden");
   startTimer();
-  showQuestion();
-  generateNav();
-  document.getElementById("score").classList.add("hidden");
+  renderQuestion();
+  renderQuestionNav();
+  document.body.className = category;
 }
 
-function showQuestion() {
-  let q = questions[currentIndex];
-  document.getElementById("question-text").innerText = q.q;
-  let answersDiv = document.getElementById("answers");
+function renderQuestion() {
+  const q = currentTest[currentIndex];
+  questionText.textContent = q.q;
   answersDiv.innerHTML = "";
-
-  q.options.forEach((opt,i)=>{
-    let btn = document.createElement("button");
-    btn.innerText = opt;
-
-    if(userAnswers[currentIndex] === i) btn.classList.add("selected");
-
-    btn.onclick = ()=>{
-      userAnswers[currentIndex] = i;
-      showQuestion();
-
-      // Pasa automáticamente a la siguiente pregunta
-      if(currentIndex < questions.length-1){
-        currentIndex++;
-        showQuestion();
-      }
-    };
-
-    // Mostrar resultados después de finalizar
-    if(userAnswers[currentIndex] !== undefined && document.getElementById("score").classList.contains("hidden")===false){
-      if(i === q.answer) btn.classList.add("correct");
-      if(i === userAnswers[currentIndex] && i !== q.answer) btn.classList.add("wrong");
-    }
-
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    if(selectedAnswers[currentIndex] === idx) btn.classList.add("selected");
+    btn.addEventListener("click", () => {
+      selectedAnswers[currentIndex] = idx;
+      renderQuestion();
+    });
     answersDiv.appendChild(btn);
   });
 }
 
-function generateNav() {
-  let nav = document.getElementById("question-nav");
-  nav.innerHTML = "";
-  questions.forEach((_,i)=>{
-    let btn = document.createElement("button");
-    btn.innerText = i+1;
-    btn.onclick = ()=>{
-      currentIndex = i;
-      showQuestion();
-    };
-    nav.appendChild(btn);
+function renderQuestionNav() {
+  questionNav.innerHTML = "";
+  currentTest.forEach((_, idx) => {
+    const btn = document.createElement("button");
+    btn.textContent = idx+1;
+    if(scoreDiv.classList.contains("hidden")===false){
+      const correct = currentTest[idx].answer;
+      const sel = selectedAnswers[idx];
+      if(sel === correct) btn.style.backgroundColor = "green";
+      else btn.style.backgroundColor = "red";
+      btn.addEventListener("click", ()=>showQuestionWithResults(idx));
+    } else {
+      btn.addEventListener("click", ()=>{currentIndex=idx; renderQuestion();});
+    }
+    questionNav.appendChild(btn);
   });
 }
 
 function finishTest() {
+  score = selectedAnswers.reduce((acc, sel, idx) => sel === currentTest[idx].answer ? acc+1 : acc,0);
+  scoreDiv.textContent = `Tu puntuación: ${score} / ${currentTest.length}`;
+  scoreDiv.classList.remove("hidden");
   clearInterval(timerInterval);
-  let score = 0;
-  questions.forEach((q,i)=>{
-    let navBtn = document.getElementById("question-nav").children[i];
-    if(userAnswers[i] === q.answer){
-      score++;
-      navBtn.classList.add("correct");
-    } else {
-      navBtn.classList.add("wrong");
-    }
-  });
-  document.getElementById("score").innerText = `Tu score: ${score} / ${questions.length}`;
-  document.getElementById("score").classList.remove("hidden");
-  showQuestion();
+  renderQuestionNav();
 }
 
-function restartTest() {
-  currentIndex = 0;
-  userAnswers = [];
-  questions = shuffle([...questions]);
-  startTimer();
-  showQuestion();
-  generateNav();
-  document.getElementById("score").classList.add("hidden");
+function showQuestionWithResults(idx){
+  currentIndex = idx;
+  const q = currentTest[idx];
+  questionText.textContent = q.q;
+  answersDiv.innerHTML = "";
+  q.options.forEach((opt, oidx)=>{
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    if(selectedAnswers[idx]===oidx && selectedAnswers[idx]===q.answer) btn.classList.add("correct");
+    else if(selectedAnswers[idx]===oidx && selectedAnswers[idx]!==q.answer) btn.classList.add("incorrect");
+    else if(oidx===q.answer) btn.classList.add("correct");
+    answersDiv.appendChild(btn);
+  });
 }
+
+function restartTest(){
+  stopTimer();
+  startTest(currentCategory);
+}
+
+function goHome(){
+  stopTimer();
+  testContainer.classList.add("hidden");
+  homeSection.classList.remove("hidden");
+}
+
+function startTimer(){
+  let seconds = 0;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    seconds++;
+    const m = String(Math.floor(seconds/60)).padStart(2,'0');
+    const s = String(seconds%60).padStart(2,'0');
+    timerSpan.textContent = `${m}:${s}`;
+  },1000);
+}
+
+function stopTimer(){
+  clearInterval(timerInterval);
+}
+
+finishBtn.addEventListener("click", finishTest);
+restartBtn.addEventListener("click", restartTest);
+
 
 
 

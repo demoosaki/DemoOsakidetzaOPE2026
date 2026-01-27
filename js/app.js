@@ -1,4 +1,3 @@
-// Variables globales
 let questions = [];
 let currentQuestionIndex = 0;
 let timer = 0;
@@ -6,7 +5,7 @@ let timerInterval;
 let userAnswers = [];
 let testFinished = false;
 
-// Demo 10 preguntas ABCD
+// Demo 10 preguntas
 const demoQuestions = [
   {q:"Pregunta 1", a:["A1","B1","C1","D1"], correct:0},
   {q:"Pregunta 2", a:["A2","B2","C2","D2"], correct:1},
@@ -20,15 +19,14 @@ const demoQuestions = [
   {q:"Pregunta 10", a:["A10","B10","C10","D10"], correct:1},
 ];
 
-// Funciones
 function startTest(category){
   document.querySelector(".categories").classList.add("hidden");
   document.getElementById("test-container").classList.remove("hidden");
 
-  questions = [...demoQuestions].sort(() => Math.random() - 0.5);
-  currentQuestionIndex = 0;
+  questions = [...demoQuestions].sort(()=>Math.random()-0.5);
+  currentQuestionIndex=0;
   userAnswers = Array(questions.length).fill(null);
-  testFinished = false;
+  testFinished=false;
 
   document.getElementById("finish-btn").classList.remove("hidden");
   document.getElementById("restart-btn").classList.remove("hidden");
@@ -40,29 +38,29 @@ function startTest(category){
 }
 
 function startTimer(){
-  timer = 0;
+  timer=0;
   clearInterval(timerInterval);
-  timerInterval = setInterval(()=>{
+  timerInterval=setInterval(()=>{
     timer++;
-    const min = String(Math.floor(timer/60)).padStart(2,"0");
-    const sec = String(timer%60).padStart(2,"0");
-    document.getElementById("timer").textContent = `${min}:${sec}`;
+    const min=String(Math.floor(timer/60)).padStart(2,"0");
+    const sec=String(timer%60).padStart(2,"0");
+    document.getElementById("timer").textContent=`${min}:${sec}`;
   },1000);
 }
 
 function renderQuestion(){
-  const q = questions[currentQuestionIndex];
-  document.getElementById("question-text").textContent = q.q;
-  const answersDiv = document.getElementById("answers");
-  answersDiv.innerHTML = "";
+  const q=questions[currentQuestionIndex];
+  const answersDiv=document.getElementById("answers");
+  document.getElementById("question-text").textContent=q.q;
+  answersDiv.innerHTML="";
   q.a.forEach((ans,i)=>{
-    const btn = document.createElement("button");
-    btn.textContent = ans;
-    btn.onclick = ()=>selectAnswer(i);
-    // marcar respuestas después de finalizar
+    const btn=document.createElement("button");
+    btn.textContent=ans;
+    btn.onclick=()=>selectAnswer(i);
+    if(userAnswers[currentQuestionIndex]===i) btn.classList.add("selected");
     if(testFinished){
-      if(i===q.correct) btn.style.background="#14532d"; // verde
-      if(userAnswers[currentQuestionIndex]===i && i!==q.correct) btn.style.background="#7f1d1d"; // rojo
+      if(i===q.correct) btn.classList.add("correct");
+      else if(userAnswers[currentQuestionIndex]===i && i!==q.correct) btn.classList.add("wrong");
     }
     answersDiv.appendChild(btn);
   });
@@ -71,6 +69,7 @@ function renderQuestion(){
 function selectAnswer(index){
   if(testFinished) return;
   userAnswers[currentQuestionIndex]=index;
+  renderQuestion(); // marca respuesta seleccionada
   nextQuestion();
 }
 
@@ -82,16 +81,16 @@ function nextQuestion(){
 }
 
 function renderQuestionNav(){
-  const nav = document.getElementById("question-nav");
+  const nav=document.getElementById("question-nav");
   nav.innerHTML="";
   questions.forEach((_,i)=>{
-    const btn = document.createElement("button");
-    btn.textContent = i+1;
+    const btn=document.createElement("button");
+    btn.textContent=i+1;
     if(testFinished){
       if(userAnswers[i]===questions[i].correct) btn.classList.add("correct");
       else btn.classList.add("wrong");
     }
-    btn.onclick = ()=>{
+    btn.onclick=()=>{
       currentQuestionIndex=i;
       renderQuestion();
     };
@@ -104,15 +103,14 @@ function finishTest(){
   clearInterval(timerInterval);
   renderQuestionNav();
   renderQuestion();
-  // score
-  const correctCount = userAnswers.filter((a,i)=>a===questions[i].correct).length;
-  const scoreDiv = document.getElementById("score");
-  scoreDiv.textContent = `Score: ${correctCount}/${questions.length}`;
+  const correctCount=userAnswers.filter((a,i)=>a===questions[i].correct).length;
+  const scoreDiv=document.getElementById("score");
+  scoreDiv.textContent=`Score: ${correctCount}/${questions.length}`;
   scoreDiv.classList.remove("hidden");
 }
 
 function restartTest(){
-  startTest(); // reinicia todo
+  startTest();
 }
 
 function goHome(){
@@ -120,4 +118,5 @@ function goHome(){
   document.querySelector(".categories").classList.remove("hidden");
   clearInterval(timerInterval);
 }
+
 

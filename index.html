@@ -8,7 +8,7 @@
 <body class="theme-default">
 
 <header>
-  <h1>Demo OPE Osakidetza 2026</h1>
+  <h1 style="cursor:pointer;" onclick="goHome()">Demo OPE Osakidetza 2026</h1>
   <p id="subtitle">Demo interactiva batería de preguntas</p>
 </header>
 
@@ -22,53 +22,8 @@
   <div class="card" onclick="startTest('Auxiliar de Enfermería')">
     <h2>Auxiliar de Enfermería</h2>
   </div>
-  <div class="card" onclick="startTest('Celador')">
-    <h2>Celador</h2>
-  </div>
-</main>
+  <div class="card" onclick="startTest('Celador')
 
-<section id="test-container" class="hidden">
-  <div class="test-layout">
-
-    <aside class="ad-space left-ad">Ads</aside>
-
-    <aside id="question-nav"></aside>
-
-    <div class="question-box">
-      <div class="top-bar">
-        <span id="timer">00:00</span>
-      </div>
-      <h2 id="current-category"></h2>
-      <h2 id="question-text"></h2>
-      <div id="answers"></div>
-      <div class="button-group">
-        <button id="finish-btn" class="finish-btn" onclick="finishTest()">Finalizar test</button>
-        <button id="restart-btn" class="finish-btn" onclick="restartTest()">Reiniciar test</button>
-      </div>
-      <div id="score" class="score hidden"></div>
-    </div>
-
-    <aside class="ad-space right-ad">Ads</aside>
-  </div>
-</section>
-
-<section class="news-section">
-  <h3>Noticias OPE Osakidetza</h3>
-  <ul>
-    <!-- Noticias dinámicas con API se pueden cargar aquí -->
-  </ul>
-</section>
-
-<footer>
-  <div class="contact">
-    <h3>Contacto y sugerencias</h3>
-    <p>Email: <a href="mailto:contacto@ope2026.com">contacto@ope2026.com</a></p>
-  </div>
-</footer>
-
-<script src="js/app.js"></script>
-</body>
-</html>
 
 
 

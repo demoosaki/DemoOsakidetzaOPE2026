@@ -1,11 +1,11 @@
 /* --------------------------------------------- */
-/* BASE COLORES OSCUROS */
+/* BASE CLARA */
 :root {
-  --color-text: #fff;
-  --color-card-bg: #2c2c2c;
-  --color-card-border: #444;
-  --color-button: #555;
-  --color-button-hover: #777;
+  --color-text: #111;
+  --color-card-bg: #f5f5f5;
+  --color-card-border: #ddd;
+  --color-button: #ccc;
+  --color-button-hover: #bbb;
   --color-correct: #28a745;
   --color-wrong: #dc3545;
   --color-selected: #6c757d;
@@ -13,51 +13,50 @@
 
 /* TEMAS POR CATEGORÍA */
 body.theme-medicina {
-  --color-bg: #0d1b2a;
-  --color-primary: #415a77;
-  --color-secondary: #1b263b;
-  --color-accent: #90e0ef;
-  --color-button: #1b263b;
-  --color-button-hover: #415a77;
+  --color-bg: #cfe0fc;
+  --color-primary: #9bb7f0;
+  --color-secondary: #7aa6e0;
+  --color-accent: #4a90e2;
+  --color-button: #7aa6e0;
+  --color-button-hover: #4a90e2;
 }
 
 body.theme-enfermeria {
-  --color-bg: #7c2d12;
-  --color-primary: #d9480f;
-  --color-secondary: #f97316;
-  --color-accent: #ffb347;
-  --color-button: #d9480f;
-  --color-button-hover: #f97316;
+  --color-bg: #ffe5d4;
+  --color-primary: #ffb086;
+  --color-secondary: #ff9466;
+  --color-accent: #ff6f40;
+  --color-button: #ff9466;
+  --color-button-hover: #ff6f40;
 }
 
 body.theme-auxiliar {
-  --color-bg: #4c1130;
-  --color-primary: #7e2e57;
-  --color-secondary: #bc6c8f;
-  --color-accent: #f4a0c4;
-  --color-button: #7e2e57;
-  --color-button-hover: #bc6c8f;
+  --color-bg: #fdd9e6;
+  --color-primary: #f7a9c7;
+  --color-secondary: #f482ad;
+  --color-accent: #ef3d85;
+  --color-button: #f482ad;
+  --color-button-hover: #ef3d85;
 }
 
 body.theme-celador {
-  --color-bg: #0f3d0f;
-  --color-primary: #2e7d32;
-  --color-secondary: #66bb6a;
-  --color-accent: #81c784;
-  --color-button: #2e7d32;
-  --color-button-hover: #66bb6a;
+  --color-bg: #dff7df;
+  --color-primary: #9be49b;
+  --color-secondary: #6fd06f;
+  --color-accent: #34b034;
+  --color-button: #6fd06f;
+  --color-button-hover: #34b034;
 }
 
 body.theme-default {
-  --color-bg: #1e1e1e;
-  --color-primary: #2c2c2c;
-  --color-secondary: #444;
-  --color-accent: #6c757d;
-  --color-button: #555;
-  --color-button-hover: #777;
+  --color-bg: #a7c7e7;
+  --color-primary: #7aa6e0;
+  --color-secondary: #4a90e2;
+  --color-accent: #2d6fcc;
+  --color-button: #7aa6e0;
+  --color-button-hover: #4a90e2;
 }
 
-/* --------------------------------------------- */
 /* GLOBAL */
 body {
   font-family: 'Inter', sans-serif;
@@ -71,6 +70,7 @@ header {
   text-align: center;
   padding: 2rem;
   background: var(--color-primary);
+  color: #fff;
 }
 
 header h1 {
@@ -79,11 +79,11 @@ header h1 {
 
 header p {
   font-size: 1rem;
-  color: var(--color-accent);
+  color: #fff;
 }
 
 /* CATEGORÍAS */
-.categories {
+#categories-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
@@ -121,8 +121,8 @@ header p {
 .ad-space {
   width: 120px;
   min-height: 60px;
-  background: #222;
-  border: 1px dashed #555;
+  background: #eee;
+  border: 1px dashed #bbb;
   text-align: center;
   color: var(--color-text);
 }
@@ -160,13 +160,8 @@ header p {
   background: var(--color-selected);
 }
 
-#answers button.correct {
-  background: var(--color-correct);
-}
-
-#answers button.wrong {
-  background: var(--color-wrong);
-}
+#answers button.correct { background: var(--color-correct); }
+#answers button.wrong { background: var(--color-wrong); }
 
 #question-nav {
   display: flex;
@@ -187,13 +182,8 @@ header p {
   font-size: 0.9rem;
 }
 
-#question-nav button.correct {
-  background: var(--color-correct);
-}
-
-#question-nav button.wrong {
-  background: var(--color-wrong);
-}
+#question-nav button.correct { background: var(--color-correct); }
+#question-nav button.wrong { background: var(--color-wrong); }
 
 .button-group {
   margin-top: 1rem;
@@ -211,9 +201,7 @@ header p {
   color: var(--color-text);
 }
 
-.finish-btn:hover {
-  background: var(--color-button-hover);
-}
+.finish-btn:hover { background: var(--color-button-hover); }
 
 .score {
   margin-top: 1rem;
@@ -221,6 +209,16 @@ header p {
   font-weight: bold;
   color: var(--color-accent);
   text-align: center;
+}
+
+.disclaimer {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 10px;
 }
 
 /* NEWS */
@@ -235,11 +233,11 @@ header p {
 
 .news-section h3 { color: var(--color-accent); }
 .news-section ul { list-style: none; padding: 0 1rem; }
-.news-section li { padding: 0.5rem 0; border-bottom: 1px solid #555; }
+.news-section li { padding: 0.5rem 0; border-bottom: 1px solid #ddd; }
 
 /* CONTACTO */
 footer {
-  background: #111;
+  background: #f0f0f0;
   padding: 2rem;
   text-align: center;
 }
@@ -252,6 +250,7 @@ footer a { color: var(--color-accent); text-decoration: none; }
   #answers button { width: 100%; }
   #question-nav { flex-direction: row; justify-content: center; gap: 0.3rem; }
 }
+
 
 
 

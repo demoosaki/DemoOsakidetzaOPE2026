@@ -16,9 +16,7 @@ let userAnswers = [];
 let timerInterval;
 let seconds = 0;
 
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
+function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
 function startTimer() {
   clearInterval(timerInterval);
@@ -68,18 +66,30 @@ function showQuestion() {
   document.getElementById("question-text").innerText = q.q;
   let answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
+
   q.options.forEach((opt,i)=>{
     let btn = document.createElement("button");
     btn.innerText = opt;
+
     if(userAnswers[currentIndex] === i) btn.classList.add("selected");
+
     btn.onclick = ()=>{
       userAnswers[currentIndex] = i;
       showQuestion();
+
+      // Pasa automáticamente a la siguiente pregunta
       if(currentIndex < questions.length-1){
         currentIndex++;
         showQuestion();
       }
     };
+
+    // Mostrar resultados después de finalizar
+    if(userAnswers[currentIndex] !== undefined && document.getElementById("score").classList.contains("hidden")===false){
+      if(i === q.answer) btn.classList.add("correct");
+      if(i === userAnswers[currentIndex] && i !== q.answer) btn.classList.add("wrong");
+    }
+
     answersDiv.appendChild(btn);
   });
 }
@@ -124,6 +134,7 @@ function restartTest() {
   generateNav();
   document.getElementById("score").classList.add("hidden");
 }
+
 
 
 

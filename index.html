@@ -16,15 +16,12 @@
   <div class="card" onclick="startTest('medicina')">
     <h2>Medicina</h2>
   </div>
-
   <div class="card" onclick="startTest('enfermeria')">
     <h2>Enfermería</h2>
   </div>
-
   <div class="card" onclick="startTest('auxiliar')">
     <h2>Auxiliar de Enfermería</h2>
   </div>
-
   <div class="card" onclick="startTest('celador')">
     <h2>Celador</h2>
   </div>
@@ -46,15 +43,27 @@
       </div>
       <h2 id="question-text"></h2>
       <div id="answers"></div>
-      <button id="finish-btn" class="hidden finish-btn">Finalizar test</button>
+      <div class="button-group">
+        <button id="finish-btn" class="hidden finish-btn">Finalizar test</button>
+        <button id="restart-btn" class="hidden finish-btn" onclick="restartTest()">Reiniciar test</button>
+      </div>
+      <div id="score" class="score hidden"></div>
     </div>
 
     <!-- Espacio lateral derecho para ads -->
     <aside class="ad-space right-ad"></aside>
-
   </div>
 </section>
+
+<footer>
+  <div class="contact">
+    <h3>Contacto y sugerencias</h3>
+    <p>Email: <a href="mailto:contacto@ope2026.com">contacto@ope2026.com</a></p>
+    <p>Si tienes sugerencias sobre la web o preguntas de test, ¡envíanos un mensaje!</p>
+  </div>
+</footer>
 
 <script src="js/app.js"></script>
 </body>
 </html>
+

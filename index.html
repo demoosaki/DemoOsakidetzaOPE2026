@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-8376718952935319">
   <meta charset="UTF-8">
   <title>Demo OPE Osakidetza 2026</title>
+  
+  <!-- Verificación Google AdSense -->
+  <meta name="google-site-verification" content="TU_CODIGO_DE_ADSENSE">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="theme-default">
+<body>
 
 <header>
   <h1 style="cursor:pointer;" onclick="goHome()">Demo OPE Osakidetza 2026</h1>
-  <p id="subtitle">Demo interactiva batería de preguntas</p>
 </header>
 
-<!-- PORTADA -->
-<main id="categories-container">
-  <div class="card" onclick="startTest('Medicina')">
-    <h2>Medicina</h2>
-  </div>
-  <div class="card" onclick="startTest('Enfermería')">
-    <h2>Enfermería</h2>
-  </div>
-  <div class="card" onclick="startTest('Auxiliar de Enfermería')">
-    <h2>Auxiliar de Enfermería</h2>
-  </div>
-  <div class="card" onclick="startTest('Celador')">
-    <h2>Celador</h2>
-  </div>
+<main id="home">
+
+  <!-- Disclaimer -->
+  <p class="disclaimer">
+    Esta es una demo y por alguno puede contener errores, si encontráis alguna escribidnos y lo solucionaremos, gracias.
+  </p>
+
+  <!-- Categorías -->
+  <section class="categories">
+    <div class="card" onclick="startTest('medicina')">
+      <h2>Medicina</h2>
+    </div>
+    <div class="card" onclick="startTest('enfermeria')">
+      <h2>Enfermería</h2>
+    </div>
+    <div class="card" onclick="startTest('auxiliar')">
+      <h2>Auxiliar de Enfermería</h2>
+    </div>
+    <div class="card" onclick="startTest('celador')">
+      <h2>Celador</h2>
+    </div>
+  </section>
+
+  <!-- Noticias API (integración externa) -->
+  <section id="news">
+    <h3>Noticias OPE</h3>
+    <div id="news-content">
+      <!-- Aquí se mostrarán las noticias de la API -->
+    </div>
+  </section>
+
 </main>
 
-<!-- TEST -->
+<!-- Contenedor de test (oculto hasta que se seleccione una categoría) -->
 <section id="test-container" class="hidden">
+  <h2 id="test-category-name"></h2>
+
+  <div class="top-bar">
+    <span id="timer">00:00</span>
+  </div>
+
   <div class="test-layout">
+    <!-- Lateral izquierdo para anuncios -->
+    <aside class="ad-space left-ad">
+      <!-- Código AdSense lateral izquierdo -->
+    </aside>
 
-    <aside class="ad-space left-ad">Ads</aside>
-
+    <!-- Menú de preguntas -->
     <aside id="question-nav"></aside>
 
+    <!-- Pregunta y respuestas -->
     <div class="question-box">
-      <h2 id="current-category"></h2>
       <h2 id="question-text"></h2>
       <div id="answers"></div>
-      <div class="button-group">
-        <button id="finish-btn" class="finish-btn" onclick="finishTest()">Finalizar test</button>
-        <button id="restart-btn" class="finish-btn" onclick="restartTest()">Reiniciar test</button>
-      </div>
-      <div id="score" class="score hidden"></div>
-      <div class="top-bar">
-        <span id="timer">00:00</span>
-      </div>
+      <button id="finish-btn" class="finish-btn hidden">Finalizar test</button>
+      <button id="restart-btn" class="finish-btn hidden">Reiniciar test</button>
+      <div id="score" class="hidden"></div>
     </div>
 
-    <aside class="ad-space right-ad">Ads</aside>
+    <!-- Lateral derecho para anuncios -->
+    <aside class="ad-space right-ad">
+      <!-- Código AdSense lateral derecho -->
+    </aside>
   </div>
 </section>
 
-<section class="disclaimer">
-  <p>Esta es una demo y por lo tanto puede contener errores, si encontráis alguno escribidnos y lo solucionaremos, gracias.</p>
-</section>
-
-<section class="news-section">
-  <h3>Noticias OPE Osakidetza</h3>
-  <ul>
-    <!-- Noticias dinámicas con API -->
-  </ul>
-</section>
-
+<!-- Contacto -->
 <footer>
-  <div class="contact">
-    <h3>Contacto y sugerencias</h3>
-    <p>Email: <a href="mailto:demoopeosakidetza2026@gmail.com">demoopeosakidetza2026@gmail.com</a></p>
-  </div>
+  <h3>Contacto y sugerencias</h3>
+  <p>Escríbenos a: <a href="mailto:demoopeosakidetza2026@gmail.com">demoopeosakidetza2026@gmail.com</a></p>
 </footer>
 
 <script src="js/app.js"></script>
 </body>
 </html>
+
 
 
 

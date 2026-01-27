@@ -1,26 +1,64 @@
 /* --------------------------------------------- */
-/* BASE DE COLORES AESTHETIC */
+/* BASE COLORES OSCUROS */
 :root {
-  --color-bg: #f5f7fa;
-  --color-primary: #90e0ef;
-  --color-secondary: #48cae4;
-  --color-accent: #ffb5a7;
-  --color-text: #333;
-  --color-card-bg: #ffffff;
-  --color-card-border: #d9e2ec;
-  --color-button: #38bdf8;
-  --color-button-hover: #0ea5e9;
-  --color-correct: #14532d;
-  --color-wrong: #7f1d1d;
-  --color-selected: #94d2bd;
+  --color-text: #fff;
+  --color-card-bg: #2c2c2c;
+  --color-card-border: #444;
+  --color-button: #555;
+  --color-button-hover: #777;
+  --color-correct: #28a745;
+  --color-wrong: #dc3545;
+  --color-selected: #6c757d;
+}
+
+/* TEMAS POR CATEGORÍA */
+body.theme-medicina {
+  --color-bg: #0d1b2a;
+  --color-primary: #415a77;
+  --color-secondary: #1b263b;
+  --color-accent: #90e0ef;
+  --color-button: #1b263b;
+  --color-button-hover: #415a77;
+}
+
+body.theme-enfermeria {
+  --color-bg: #7c2d12;
+  --color-primary: #d9480f;
+  --color-secondary: #f97316;
+  --color-accent: #ffb347;
+  --color-button: #d9480f;
+  --color-button-hover: #f97316;
+}
+
+body.theme-auxiliar {
+  --color-bg: #4c1130;
+  --color-primary: #7e2e57;
+  --color-secondary: #bc6c8f;
+  --color-accent: #f4a0c4;
+  --color-button: #7e2e57;
+  --color-button-hover: #bc6c8f;
+}
+
+body.theme-celador {
+  --color-bg: #0f3d0f;
+  --color-primary: #2e7d32;
+  --color-secondary: #66bb6a;
+  --color-accent: #81c784;
+  --color-button: #2e7d32;
+  --color-button-hover: #66bb6a;
+}
+
+body.theme-default {
+  --color-bg: #1e1e1e;
+  --color-primary: #2c2c2c;
+  --color-secondary: #444;
+  --color-accent: #6c757d;
+  --color-button: #555;
+  --color-button-hover: #777;
 }
 
 /* --------------------------------------------- */
-/* GLOBAL ESTILOS */
-* {
-  box-sizing: border-box;
-}
-
+/* GLOBAL */
 body {
   font-family: 'Inter', sans-serif;
   background: var(--color-bg);
@@ -37,18 +75,14 @@ header {
 
 header h1 {
   cursor: pointer;
-  color: #fff;
-  font-size: 2rem;
 }
 
 header p {
   font-size: 1rem;
-  color: #eef6fb;
-  margin-top: 0.3rem;
+  color: var(--color-accent);
 }
 
-/* --------------------------------------------- */
-/* CATEGORÍA TARJETAS */
+/* CATEGORÍAS */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -64,24 +98,18 @@ header p {
   border-radius: 15px;
   padding: 1.6rem;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
+  transition: 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-color: var(--color-secondary);
+  border-color: var(--color-accent);
 }
 
-.card h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: var(--color-text);
-}
+.card h2 { margin: 0; }
 
-/* --------------------------------------------- */
-/* TEST LAYOUT */
+/* TEST */
 .test-layout {
   display: flex;
   padding: 2rem;
@@ -90,29 +118,20 @@ header p {
   justify-content: center;
 }
 
-/* ESPACIO PARA ADS */
 .ad-space {
   width: 120px;
   min-height: 60px;
-  background: #e0e8f0;
-  border: 1px dashed var(--color-card-border);
-  padding: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--color-text);
+  background: #222;
+  border: 1px dashed #555;
   text-align: center;
+  color: var(--color-text);
 }
 
-.left-ad { margin-bottom: 1rem; }
-.right-ad { margin-bottom: 1rem; }
-
-/* --------------------------------------------- */
-/* PREGUNTAS Y RESPUESTAS */
 .question-box {
   flex: 1 1 60%;
   padding: 1rem;
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .top-bar {
@@ -121,7 +140,7 @@ header p {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 #answers button {
@@ -134,32 +153,21 @@ header p {
   border: 2px solid var(--color-card-border);
   border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-#answers button:hover {
-  background: var(--color-secondary);
-  color: #fff;
 }
 
 #answers button.selected {
   border-color: var(--color-selected);
   background: var(--color-selected);
-  color: #fff;
 }
 
 #answers button.correct {
   background: var(--color-correct);
-  color: #fff;
 }
 
 #answers button.wrong {
   background: var(--color-wrong);
-  color: #fff;
 }
 
-/* MENÚ LATERAL PREGUNTAS */
 #question-nav {
   display: flex;
   flex-direction: column;
@@ -181,16 +189,12 @@ header p {
 
 #question-nav button.correct {
   background: var(--color-correct);
-  color: #fff;
 }
 
 #question-nav button.wrong {
   background: var(--color-wrong);
-  color: #fff;
 }
 
-/* --------------------------------------------- */
-/* BOTONES FINISH / RESTART */
 .button-group {
   margin-top: 1rem;
   display: flex;
@@ -202,89 +206,53 @@ header p {
   font-size: 1.1rem;
   border-radius: 10px;
   background: var(--color-button);
-  color: #fff;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+  color: var(--color-text);
 }
 
 .finish-btn:hover {
   background: var(--color-button-hover);
-  color: #fff;
 }
 
-/* SCORE */
 .score {
   margin-top: 1rem;
   font-size: 1.4rem;
   font-weight: bold;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   text-align: center;
 }
 
-/* --------------------------------------------- */
-/* NOTICIAS */
+/* NEWS */
 .news-section {
   margin: 2rem auto;
   padding: 1rem;
   max-width: 900px;
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 12px;
   border: 1px solid var(--color-card-border);
 }
 
-.news-section h3 {
-  font-size: 1.5rem;
-  color: var(--color-accent);
-  margin-bottom: 0.8rem;
-}
-
-.news-section ul {
-  margin: 0;
-  padding: 0 1rem;
-  list-style: none;
-}
-
-.news-section li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #e2e8f0;
-  color: var(--color-text);
-  font-size: 0.95rem;
-}
+.news-section h3 { color: var(--color-accent); }
+.news-section ul { list-style: none; padding: 0 1rem; }
+.news-section li { padding: 0.5rem 0; border-bottom: 1px solid #555; }
 
 /* CONTACTO */
 footer {
-  background: #1e293b;
+  background: #111;
   padding: 2rem;
   text-align: center;
-  color: #fff;
-  margin-top: 3rem;
 }
-
-footer a {
-  color: var(--color-button);
-  text-decoration: none;
-}
+footer a { color: var(--color-accent); text-decoration: none; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .test-layout {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  .ad-space {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
-  #answers button {
-    width: 100%;
-  }
-  #question-nav {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.3rem;
-  }
+  .test-layout { flex-direction: column; padding: 1rem; }
+  .ad-space { width: 100%; margin: 0.5rem 0; }
+  #answers button { width: 100%; }
+  #question-nav { flex-direction: row; justify-content: center; gap: 0.3rem; }
 }
+
 
 
 

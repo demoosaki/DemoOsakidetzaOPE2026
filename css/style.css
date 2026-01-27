@@ -1,139 +1,167 @@
-/* BASE CLARA Y COLORES POR CATEGORÍA */
-:root {
-  --color-text: #111;
-  --color-card-bg: #f5f5f5;
-  --color-card-border: #ddd;
-  --color-button: #ccc;
-  --color-button-hover: #bbb;
-  --color-correct: #28a745;
-  --color-wrong: #dc3545;
-  --color-selected: #6c757d;
-}
-
-/* TEMAS */
-body.theme-medicina {
-  --color-bg: #cfe0fc;
-  --color-primary: #9bb7f0;
-  --color-accent: #4a90e2;
-  --color-button: #7aa6e0;
-  --color-button-hover: #4a90e2;
-}
-
-body.theme-enfermeria {
-  --color-bg: #ffe5d4;
-  --color-primary: #ffb086;
-  --color-accent: #ff6f40;
-  --color-button: #ff9466;
-  --color-button-hover: #ff6f40;
-}
-
-body.theme-auxiliar {
-  --color-bg: #fdd9e6;
-  --color-primary: #f7a9c7;
-  --color-accent: #ef3d85;
-  --color-button: #f482ad;
-  --color-button-hover: #ef3d85;
-}
-
-body.theme-celador {
-  --color-bg: #dff7df;
-  --color-primary: #9be49b;
-  --color-accent: #34b034;
-  --color-button: #6fd06f;
-  --color-button-hover: #34b034;
-}
-
-body.theme-default {
-  --color-bg: #7aa6e0;
-  --color-primary: #4a90e2;
-  --color-accent: #2d6fcc;
-  --color-button: #7aa6e0;
-  --color-button-hover: #4a90e2;
-}
-
-/* GLOBAL */
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* GENERAL */
+body {
+  background-color: #e0f0ff; /* fondo claro azulish */
+  color: #333;
+  min-height: 100vh;
 }
 
 header {
   text-align: center;
-  padding: 2rem;
-  background: var(--color-primary);
-  color: #fff;
+  padding: 20px;
+  background: #0077b6; /* azul portada */
+  color: white;
+  cursor: pointer;
 }
 
-header h1 { cursor: pointer; }
-header p { font-size: 1rem; color: #fff; }
+.disclaimer {
+  text-align: center;
+  margin: 15px 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
 
-/* CATEGORÍAS */
-#categories-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px;
 }
 
 .card {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: 15px;
-  padding: 1.6rem;
+  padding: 25px 35px;
+  background-color: #90e0ef;
+  border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s;
   text-align: center;
-  transition: 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: var(--color-accent);
 }
 
-.card h2 { margin: 0; }
+.hidden {
+  display: none;
+}
 
-/* TEST */
-.test-layout { display: flex; padding: 2rem; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.ad-space { width: 120px; min-height: 60px; background: #eee; border: 1px dashed #bbb; text-align: center; color: var(--color-text); }
-.question-box { flex: 1 1 60%; padding: 1rem; background: var(--color-card-bg); border-radius: 12px; }
-.top-bar { width: 100%; text-align: right; font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-accent); }
-#answers button { display: block; width: 100%; margin: 0.5rem 0; padding: 1rem; background: var(--color-card-bg); color: var(--color-text); border: 2px solid var(--color-card-border); border-radius: 10px; cursor: pointer; }
-#answers button.selected { border-color: var(--color-selected); background: var(--color-selected); }
-#answers button.correct { background: var(--color-correct); }
-#answers button.wrong { background: var(--color-wrong); }
+.test-layout {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 10px;
+}
 
-#question-nav { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; margin-bottom: 1rem; }
-#question-nav button { width: 35px; height: 35px; background: var(--color-card-bg); color: var(--color-text); border: 1px solid var(--color-card-border); border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
-#question-nav button.correct { background: var(--color-correct); }
-#question-nav button.wrong { background: var(--color-wrong); }
+.question-box {
+  flex: 2;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
 
-.button-group { margin-top: 1rem; display: flex; justify-content: space-between; }
-.finish-btn { padding: 1rem 2rem; font-size: 1.1rem; border-radius: 10px; background: var(--color-button); border: none; cursor: pointer; color: var(--color-text); }
-.finish-btn:hover { background: var(--color-button-hover); }
+#answers button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: left;
+}
 
-.score { margin-top: 1rem; font-size: 1.4rem; font-weight: bold; color: var(--color-accent); text-align: center; }
+#answers button.selected {
+  background-color: #d0ebff;
+}
 
-.disclaimer { max-width: 900px; margin: 2rem auto; padding: 1rem; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 10px; }
+#answers button.correct {
+  background-color: #90ee90;
+}
 
-.news-section { margin: 2rem auto; padding: 1rem; max-width: 900px; background: var(--color-card-bg); border-radius: 12px; border: 1px solid var(--color-card-border); }
-.news-section h3 { color: var(--color-accent); }
-.news-section ul { list-style: none; padding: 0 1rem; }
-.news-section li { padding: 0.5rem 0; border-bottom: 1px solid #ddd; }
+#answers button.incorrect {
+  background-color: #ff8c8c;
+}
 
-footer { background: #f0f0f0; padding: 2rem; text-align: center; }
-footer a { color: var(--color-accent); text-decoration: none; }
+.finish-btn {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+#finish-btn {
+  background-color: #0077b6;
+}
+
+#restart-btn {
+  background-color: #ff7f50;
+}
+
+#score {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.ad-space {
+  flex: 0 0 160px;
+  background-color: #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Temas por categoría */
+.medicina {
+  --color-primary: #0077b6;
+  background-color: #caf0f8;
+}
+.enfermeria {
+  --color-primary: #f4a261;
+  background-color: #fff4e6;
+}
+.auxiliar {
+  --color-primary: #f7c6d0;
+  background-color: #fff0f5;
+}
+.celador {
+  --color-primary: #6aa84f;
+  background-color: #e6f2e6;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0077b6;
+  color: white;
+  margin-top: 30px;
+}
 
 @media (max-width: 768px) {
-  .test-layout { flex-direction: column; padding: 1rem; }
-  .ad-space { width: 100%; margin: 0.5rem 0; }
-  #answers button { width: 100%; }
-  #question-nav { flex-direction: row; justify-content: center; gap: 0.3rem; }
+  .test-layout {
+    flex-direction: column;
+  }
+
+  .ad-space {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .categories {
+    flex-direction: column;
+  }
 }
+
 
 
 

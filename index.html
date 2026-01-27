@@ -5,14 +5,14 @@
   <title>Demo OPE Osakidetza 2026</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="theme-default">
 
 <header>
-  <h1 style="cursor:pointer;" onclick="goHome()">Demo OPE Osakidetza 2026</h1>
+  <h1>Demo OPE Osakidetza 2026</h1>
   <p id="subtitle">Demo interactiva batería de preguntas</p>
 </header>
 
-<main class="categories">
+<main id="categories-container">
   <div class="card" onclick="startTest('Medicina')">
     <h2>Medicina</h2>
   </div>
@@ -30,7 +30,7 @@
 <section id="test-container" class="hidden">
   <div class="test-layout">
 
-    <aside class="ad-space left-ad"></aside>
+    <aside class="ad-space left-ad">Ads</aside>
 
     <aside id="question-nav"></aside>
 
@@ -48,16 +48,14 @@
       <div id="score" class="score hidden"></div>
     </div>
 
-    <aside class="ad-space right-ad"></aside>
+    <aside class="ad-space right-ad">Ads</aside>
   </div>
 </section>
 
 <section class="news-section">
   <h3>Noticias OPE Osakidetza</h3>
   <ul>
-    <li>📌 Actualización de fechas de examen prevista para 2026</li>
-    <li>🗓️ Publicada nueva guía oficial de preparación</li>
-    <li>💡 Consejos para afrontar test de categoría Enfermería</li>
+    <!-- Noticias dinámicas con API se pueden cargar aquí -->
   </ul>
 </section>
 
@@ -65,13 +63,13 @@
   <div class="contact">
     <h3>Contacto y sugerencias</h3>
     <p>Email: <a href="mailto:contacto@ope2026.com">contacto@ope2026.com</a></p>
-    <p>Si tienes sugerencias o preguntas para añadir, ¡escríbenos!</p>
   </div>
 </footer>
 
 <script src="js/app.js"></script>
 </body>
 </html>
+
 
 
 

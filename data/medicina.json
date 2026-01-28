@@ -1,1 +1,12 @@
-["sample question 1", "sample question 2", "sample question 3"]
+[  
+    {"question": "What is the role of a medicina professional?", "answer": "To diagnose and treat illnesses."},  
+    {"question": "What are common medical emergencies?", "answer": "Heart attack, stroke, and severe allergic reactions."},  
+    {"question": "What is the importance of patient confidentiality?", "answer": "It protects patient privacy and builds trust."},  
+    {"question": "What techniques are used for physical examinations?", "answer": "Inspection, palpation, percussion, and auscultation."},  
+    {"question": "What are the steps in the triage process?", "answer": "Assessment of severity, prioritization, and treatment."},  
+    {"question": "What is informed consent in medicine?", "answer": "A patient's agreement to a procedure after understanding the risks and benefits."},  
+    {"question": "How do you handle medical records?", "answer": "Maintain confidentiality and secure storage."},  
+    {"question": "What is the role of a medical assistant?", "answer": "To support healthcare professionals with administrative and clinical tasks."},  
+    {"question": "What are the major medical specializations?", "answer": "Pediatrics, cardiology, oncology, and neurology."},  
+    {"question": "What are common diagnostic tests?", "answer": "Blood tests, imaging scans, and biopsy."}  
+]

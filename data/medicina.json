@@ -1,12 +1,12 @@
-[  
-    {"question": "What is the role of a medicina professional?", "answer": "To diagnose and treat illnesses."},  
-    {"question": "What are common medical emergencies?", "answer": "Heart attack, stroke, and severe allergic reactions."},  
-    {"question": "What is the importance of patient confidentiality?", "answer": "It protects patient privacy and builds trust."},  
-    {"question": "What techniques are used for physical examinations?", "answer": "Inspection, palpation, percussion, and auscultation."},  
-    {"question": "What are the steps in the triage process?", "answer": "Assessment of severity, prioritization, and treatment."},  
-    {"question": "What is informed consent in medicine?", "answer": "A patient's agreement to a procedure after understanding the risks and benefits."},  
-    {"question": "How do you handle medical records?", "answer": "Maintain confidentiality and secure storage."},  
-    {"question": "What is the role of a medical assistant?", "answer": "To support healthcare professionals with administrative and clinical tasks."},  
-    {"question": "What are the major medical specializations?", "answer": "Pediatrics, cardiology, oncology, and neurology."},  
-    {"question": "What are common diagnostic tests?", "answer": "Blood tests, imaging scans, and biopsy."}  
+[
+  {"id":1,"q":"¿Cuál es la frecuencia cardíaca normal en adultos en reposo?","options":["30-50 lpm","60-100 lpm","100-140 lpm","140-180 lpm"],"answer":1,"explanation":"Normalmente 60–100 latidos por minuto."},
+  {"id":2,"q":"¿Qué antibiótico es de elección para una angina estreptocócica en paciente sin alergias?","options":["Amoxicilina","Ciprofloxacino","Vancomicina","Doxiciclina"],"answer":0,"explanation":"La amoxicilina/penicilina es primera línea para Streptococcus pyogenes."},
+  {"id":3,"q":"Valor objetivo recomendado de HbA1c para la mayoría de adultos con diabetes tipo 2:","options":["<6%","<7%","<8%","<9%"],"answer":1,"explanation":"Generalmente <7%, individualizando según paciente."},
+  {"id":4,"q":"Primer fármaco recomendado para muchos pacientes con hipertensión esencial:","options":["Diurético tiazídico","Antibiótico","Antipsicótico","Anticoagulante"],"answer":0,"explanation":"Los tiazídicos son una opción inicial según guías."},
+  {"id":5,"q":"Signo en ECG que sugiere infarto agudo de miocardio transmural:","options":["Ondas T altas","Elevación del ST","Bradicardia sinusal","Ondas U"],"answer":1,"explanation":"La elevación del segmento ST sugiere lesión transmural."},
+  {"id":6,"q":"Triada clásica orientativa en apendicitis aguda:","options":["Fiebre, tos, disnea","Dolor abdominal + fiebre + leucocitosis","Hematuria, disuria, polaquiuria","Cefalea, rigidez nucal, fotofobia"],"answer":1},
+  {"id":7,"q":"Fármaco de elección inicial para broncodilatación en crisis asmática aguda:","options":["Salbutamol inhalado","Insulina","Metformina","Amoxicilina"],"answer":0},
+  {"id":8,"q":"Indicador de posible insuficiencia renal aguda en analítica:","options":["Glucosa baja","Creatinina sérica elevada","Hemoglobina elevada","TSH elevada"],"answer":1},
+  {"id":9,"q":"Prueba de imagen de elección inicial ante sospecha de colecistitis o litiasis complicada:","options":["TAC abdominal","Ecografía abdominal","RMN abdominal","PET"],"answer":1,"explanation":"La ecografía es la primera prueba para vesícula biliar."},
+  {"id":10,"q":"Medida inicial prioritaria en choque hipovolémico:","options":["Administrar antibiótico","Reposición de volumen con cristaloides","Administrar insulina","Realizar ECG"],"answer":1,"explanation":"Reponer volumen es prioritario para estabilizar al paciente."
 ]

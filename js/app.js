@@ -44,6 +44,7 @@ function startTest(category) {
   testCategoryName.textContent = category.charAt(0).toUpperCase() + category.slice(1);
   testContainer.classList.remove("hidden");
   homeSection.classList.add("hidden");
+  // mostrar controles de test
   finishBtn.classList.remove("hidden");
   restartBtn.classList.remove("hidden");
   scoreDiv.classList.add("hidden");
@@ -62,8 +63,17 @@ function renderQuestion() {
     btn.textContent = opt;
     if(selectedAnswers[currentIndex] === idx) btn.classList.add("selected");
     btn.addEventListener("click", () => {
+      // Guardar la respuesta seleccionada
       selectedAnswers[currentIndex] = idx;
-      renderQuestion();
+      // Actualizar el nav de preguntas para reflejar selección
+      renderQuestionNav();
+      // Avanzar automáticamente a la siguiente pregunta, o finalizar si era la última
+      if (currentIndex < currentTest.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        finishTest();
+      }
     });
     answersDiv.appendChild(btn);
   });
@@ -119,6 +129,11 @@ function goHome(){
   stopTimer();
   testContainer.classList.add("hidden");
   homeSection.classList.remove("hidden");
+  // ocultar controles al volver a la portada
+  finishBtn.classList.add("hidden");
+  restartBtn.classList.add("hidden");
+  scoreDiv.classList.add("hidden");
+  timerSpan.textContent = "00:00";
 }
 
 function startTimer(){
@@ -138,9 +153,3 @@ function stopTimer(){
 
 finishBtn.addEventListener("click", finishTest);
 restartBtn.addEventListener("click", restartTest);
-
-
-
-
-
-

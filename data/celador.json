@@ -1,0 +1,12 @@
+[
+  {"id":1,"q":"Función típica de un celador:","options":["Realizar cirugías","Traslado de pacientes","Prescribir fármacos","Diagnosticar enfermedades"],"answer":1},
+  {"id":2,"q":"Antes de trasladar una camilla debes:","options":["Correr para ahorrar tiempo","Frenar y asegurar ruedas","No comprobar nada","Dejar la camilla sin acompañante"],"answer":1},
+  {"id":3,"q":"Cómo levantar carga pesada correctamente:","options":["Usar la espalda","Usar piernas y técnica adecuada","Girar el tronco","Correr mientras se levanta"],"answer":1},
+  {"id":4,"q":"Si encuentras un objeto peligroso en sala:","options":["Moverlo sin protección","Avisar al responsable y señalizar","Ignorarlo","Publicar foto en redes"],"answer":1},
+  {"id":5,"q":"Al acompañar a un paciente a consulta debes comprobar:","options":["Que tenga identificación","Que lleve comida","Que esté dormido","Que tenga móvil"],"answer":0},
+  {"id":6,"q":"Prioridad en evacuación por incendio:","options":["Recoger objetos personales","Evacuar siguiendo protocolo","Terminar tareas","Esperar en la sala"],"answer":1},
+  {"id":7,"q":"Qué registrar tras un traslado:","options":["Nada","Hora y destino del traslado y observaciones","Recetas médicas","Diagnósticos"],"answer":1},
+  {"id":8,"q":"Al manipular equipos (ej. oxígeno portátil) debes:","options":["Dejarlo sin comprobar","Verificar estado y fijaciones","Sumergirlo en agua","Ignorarlo"],"answer":1},
+  {"id":9,"q":"Si observas signo de caída en un paciente lo correcto es:","options":["Ignorar","Avisar al equipo sanitario","Publicar en redes","Mover al paciente sin avisar"],"answer":1},
+  {"id":10,"q":"En zonas restringidas debes:","options":["Entrar sin identificación","Llevar identificación visible y respetar normas","Pedir permiso para todo excepto identificación","No seguir normas"],"answer":1}
+]

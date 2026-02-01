@@ -1,0 +1,12 @@
+[
+  {"id":1,"q":"Objetivo principal de la higiene de manos:","options":["Solo estética","Prevenir infecciones","Eliminar polvo","Mejorar olor"],"answer":1},
+  {"id":2,"q":"Al movilizar a un paciente lo correcto es:","options":["Hacerlo solo siempre","Pedir ayuda y usar técnica adecuada","Tirarlo por los pies","No avisar al paciente"],"answer":1},
+  {"id":3,"q":"Equipo mínimo para limpieza de derrames biológicos:","options":["Guantes y mascarilla","Solo agua","Ropa de calle","Calzado abierto"],"answer":0},
+  {"id":4,"q":"Prioridad al ayudar a un paciente a comer:","options":["Hacerlo rápido","Asegurar posición y seguridad","Hablar sin mirar","Dejarlo solo"],"answer":1},
+  {"id":5,"q":"Qué registrar tras tomar constantes:","options":["Nada","Valores medidos y hora","Solo si están mal","Solo en papel suelto"],"answer":1},
+  {"id":6,"q":"Cómo actuar ante un objeto punzante en el suelo:","options":["Ignorarlo","Avisar y señalizar","Moverlo con guantes a la vista de todos","Publicar foto"],"answer":1},
+  {"id":7,"q":"En la entrega de turno lo esencial es:","options":["Cantar la canción del paciente","Informar cambios y observaciones","No hablar del paciente","Solo dar la medicación"],"answer":1},
+  {"id":8,"q":"Transporte de muestras biológicas:","options":["Sin recipiente","En recipientes cerrados y etiquetados","Mezclar con basura","Entregar a cualquier persona"],"answer":1},
+  {"id":9,"q":"Cómo realizar higiene oral a un paciente dependiente:","options":["Hacerlo rápido","Con técnica suave y materiales adecuados","Forzar la boca","No realizarla"],"answer":1},
+  {"id":10,"q":"Qué hacer si el paciente siente dolor al movilizarlo:","options":["Seguir igual","Parar, evaluar y avisar al equipo","Ignorar","Acelerar movilización"],"answer":1}
+]
